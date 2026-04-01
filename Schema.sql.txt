@@ -1,0 +1,110 @@
+create database HireSmartDB;
+
+
+use hiresmartdb;
+
+### Create table Comapanies
+
+create table companies (
+company_id int primary key auto_increment,
+company_name varchar(150) not null,
+industry varchar(100),
+location varchar(100),
+created_at datetime default current_timestamp
+);
+describe companies;
+
+### Create table Recuiters
+create table recruiters (
+recruiter_id int primary key auto_increment,
+company_id int not null,
+name varchar(100) not null,
+email varchar(150) unique not null,
+phone varchar(15),
+foreign key (company_id)
+references companies(company_id)
+on delete cascade
+);
+describe recruiters;
+
+
+### Create table candidates
+create table candidates (
+candidate_id int primary key auto_increment,
+name varchar(100) not null,
+email varchar(150) unique not null,
+phone varchar(15),
+experience_years decimal(3,1) default 0,
+city varchar(100),
+created_at datetime default current_timestamp
+);
+
+describe candidates;
+
+### Create table skills
+create table skills ( 
+skill_id int primary key auto_increment,
+skill_name varchar(100) not null unique,
+category varchar(100)
+);
+desc skills;
+
+
+### create table Candidate skills
+create table candidate_skills (
+id int primary key auto_increment,
+candidate_id int not null,
+skill_id int not null,
+proficiency_level enum('Beginner','Intermediate','Advanced') not null,
+foreign key (candidate_id)
+references candidates(candidate_id)
+on delete cascade,
+foreign key (skill_id)
+references skills(skill_id)
+on delete cascade
+);
+desc candidate_skills;
+
+
+### Create table jobs
+create table jobs (
+job_id int primary key auto_increment,
+company_id int not null,
+title varchar(150) not null,
+salary_min decimal(10,2),
+salary_max decimal(10,2),
+required_experience decimal(3,1),
+location varchar(100),
+posted_date date default (current_date),
+foreign key (company_id)
+references companies(company_id)
+on delete cascade
+);
+desc jobs;
+
+
+### Create table Applications
+Create table applications (
+application_id int primary key auto_increment,
+candidate_id int not null,
+job_id int not null,
+apply_date date default (current_date),
+status enum('Applied','Shortlisted','Rejected','Interviewed','Selected') default 'Applied',
+foreign key (candidate_id) references candidates(candidate_id) on delete cascade,
+foreign key (job_id) references jobs(job_id) on delete cascade
+); 
+desc applications;
+
+
+### Create table Assesments
+create table assessments (
+assessment_id int primary key auto_increment,
+application_id int not null,
+score int not null,
+max_score int not null,
+result enum('Pass','Fail'),
+test_date date default (current_date),
+foreign key (application_id)
+references applications(application_id) on delete cascade,
+check (score<=max_score)
+);

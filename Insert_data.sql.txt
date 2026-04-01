@@ -1,0 +1,120 @@
+### Inserting Values in a Table.
+
+INSERT INTO companies (company_name, industry, location) VALUES
+('TechNova Solutions', 'IT Services', 'Pune'),
+('DataBridge Analytics', 'Data Analytics', 'Mumbai'),
+('FinEdge Corp', 'Finance', 'Bangalore'),
+('HealthSync Pvt Ltd', 'Healthcare IT', 'Hyderabad'),
+('CodeCraft Systems', 'Software Development', 'Chennai');
+select * from companies;
+
+
+###
+INSERT INTO recruiters (company_id, name, email, phone) VALUES
+(1, 'Amit Sharma', 'amit@technova.com', '9876543210'),
+(1, 'Priya Mehta', 'priya@technova.com', '9876501234'),
+(2, 'Rahul Verma', 'rahul@databridge.com', '9988776655'),
+(3, 'Sneha Kapoor', 'sneha@finedge.com', '9123456789'),
+(4, 'Arjun Rao', 'arjun@healthsync.com', '9001122334'),
+(5, 'Neha Jain', 'neha@codecraft.com', '9887766554'),
+(2, 'Karan Malhotra', 'karan@databridge.com', '9776655443'),
+(3, 'Simran Gill', 'simran@finedge.com', '9665544332');
+select * from recruiters;
+
+###
+INSERT INTO candidates (name, email, phone, experience_years, city) VALUES
+('Jay Mahajan', 'jay@gmail.com', '9991112221', 1.5, 'Nagpur'),
+('Rohit Patil', 'rohit@gmail.com', '9991112222', 2.0, 'Pune'),
+('Anjali Deshmukh', 'anjali@gmail.com', '9991112223', 0.5, 'Mumbai'),
+('Saurabh Singh', 'saurabh@gmail.com', '9991112224', 3.0, 'Delhi'),
+('Meera Joshi', 'meera@gmail.com', '9991112225', 2.5, 'Bangalore'),
+('Vikas Yadav', 'vikas@gmail.com', '9991112226', 4.0, 'Hyderabad'),
+('Priyanka Nair', 'priyanka@gmail.com', '9991112227', 1.0, 'Chennai'),
+('Aditya Kulkarni', 'aditya@gmail.com', '9991112228', 2.2, 'Pune'),
+('Snehal Patil', 'snehal@gmail.com', '9991112229', 3.5, 'Mumbai'),
+('Kunal Shah', 'kunal@gmail.com', '9991112230', 0.8, 'Ahmedabad'),
+('Ritika Soni', 'ritika@gmail.com', '9991112231', 1.8, 'Nagpur'),
+('Harsh Gupta', 'harsh@gmail.com', '9991112232', 2.7, 'Delhi'),
+('Tanya Roy', 'tanya@gmail.com', '9991112233', 1.2, 'Kolkata'),
+('Nikhil Jain', 'nikhil@gmail.com', '9991112234', 3.8, 'Pune'),
+('Pooja Sharma', 'pooja@gmail.com', '9991112235', 2.4, 'Mumbai');
+select * from candidates;
+
+###
+INSERT INTO skills (skill_name, category) VALUES
+('SQL', 'Database'),
+('Python', 'Programming'),
+('Power BI', 'Analytics'),
+('Excel', 'Analytics'),
+('Java', 'Programming'),
+('Machine Learning', 'AI'),
+('Communication', 'Soft Skill'),
+('Data Visualization', 'Analytics');
+select * from skills;
+
+###
+INSERT INTO candidate_skills (candidate_id, skill_id, proficiency_level) VALUES
+(1,1,'Advanced'),
+(1,2,'Intermediate'),
+(1,3,'Intermediate'),
+(2,1,'Intermediate'),
+(2,4,'Advanced'),
+(3,1,'Beginner'),
+(3,2,'Intermediate'),
+(4,2,'Advanced'),
+(4,6,'Intermediate'),
+(5,1,'Advanced'),
+(5,3,'Advanced'),
+(6,5,'Advanced'),
+(7,4,'Advanced'),
+(8,1,'Intermediate'),
+(9,2,'Advanced'),
+(10,3,'Intermediate'),
+(11,1,'Advanced'),
+(12,2,'Intermediate'),
+(13,4,'Intermediate'),
+(14,1,'Advanced'),
+(15,3,'Advanced');
+select * from candidate_skills;
+
+###
+INSERT INTO jobs (company_id, title, salary_min, salary_max, required_experience, location) VALUES
+(1, 'SQL Developer', 300000, 600000, 1.0, 'Pune'),
+(2, 'Data Analyst', 400000, 800000, 1.5, 'Mumbai'),
+(3, 'Financial Analyst', 500000, 900000, 2.0, 'Bangalore'),
+(4, 'Healthcare Data Analyst', 450000, 850000, 1.5, 'Hyderabad'),
+(5, 'Backend Developer', 350000, 700000, 2.0, 'Chennai'),
+(2, 'BI Analyst', 420000, 750000, 1.0, 'Mumbai'),
+(1, 'Junior Data Engineer', 380000, 720000, 1.0, 'Pune'),
+(3, 'Risk Analyst', 550000, 950000, 2.5, 'Bangalore');
+
+select * from jobs;
+
+###
+INSERT INTO applications (candidate_id, job_id, status) VALUES
+(1,2,'Shortlisted'),
+(2,1,'Applied'),
+(3,2,'Rejected'),
+(4,3,'Interviewed'),
+(5,2,'Selected'),
+(6,8,'Applied'),
+(7,4,'Shortlisted'),
+(8,1,'Applied'),
+(9,2,'Interviewed'),
+(10,6,'Applied'),
+(11,2,'Selected'),
+(12,7,'Shortlisted'),
+(13,1,'Rejected'),
+(14,3,'Interviewed'),
+(15,2,'Applied');
+select * from applications;
+
+###
+INSERT INTO assessments (application_id, score, max_score, result) VALUES
+(1,85,100,'Pass'),
+(4,78,100,'Pass'),
+(5,92,100,'Pass'),
+(9,65,100,'Pass'),
+(11,88,100,'Pass'),
+(14,72,100,'Pass');
+select * from assessments;	
